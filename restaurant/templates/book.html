@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+
+
+<style>
+    .book{
+        display: flex;
+        justify-content: center;
+        margin: 50px 0;
+    }
+    .book h1{
+        font-size: 60px;
+        margin-bottom: 40px;
+    }
+    .book p{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .book p label{
+        display: block;
+        margin : 10px 0;
+        font-size: 20px;
+    }
+    .book p input{
+        padding: 5px 30px;
+    }
+    .book p:nth-of-type(3){
+        margin-bottom: 20px;
+    }
+</style>
+
+
+<section class="container book">
+    <article>
+        <h1>Make a reservation</h1>
+        {% csrf_token %}
+        <form action="" method="post">
+            {{form.as_p}}
+            <p><input type="submit" value="Send"></p>
+        </form>
+    </article>
+</section>
+
+
+
+{% endblock %}

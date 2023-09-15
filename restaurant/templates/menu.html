@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+
+
+<style>
+    .menu{
+        display: flex;
+        flex-direction: column;
+    }
+    .menu h1{
+        text-align: center;
+        font-size: 60px;
+        margin: 20px 0;
+    }
+    .menu .imgs-con{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    .menu .imgs-con img{
+        width: 400px;
+    }
+</style>
+
+<section class="container menu">
+    <h1>Menu Items</h1>
+    <div class="imgs-con">
+        {% for item in menu%}
+        <div>
+            <img src= "/restaurant/static/img/menu_items/{{item.title}}.jpg">
+            <h2>{{item.title}}</h2>
+            <p>$ <span>{{item.price}}</span></p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<script>
+</script>
+
+
+{% endblock %}
